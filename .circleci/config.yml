@@ -18,7 +18,7 @@ jobs:
           - v1-dependencies-
       - run: npm install cypress --save-dev
       - run: sudo npm install -g wait-on
-      - run: npm install
+      - run: npm install --save-dev
 
       - save_cache:
           paths:
