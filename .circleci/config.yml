@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node
+      - image: cypress/base
 
 
     working_directory: ~/cypress-todomvc
@@ -17,7 +17,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run: npm install cypress --save-dev
-      - run: sudo npm install -g wait-on
+      - run: npm install -g wait-on
       - run: npm install --save-dev
 
       - save_cache:
@@ -27,4 +27,4 @@ jobs:
         
       # run tests!
       - run: npm start & wait-on http://localhost:3000
-      - run: npx cypress run
+      - run: $(npm bin)/cypress run
