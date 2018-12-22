@@ -26,5 +26,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm start & wait-on http://localhost:3000
-      - run: $(npm bin)/cypress run
+      - run: npm start
+      - run: npx cypress run
